@@ -1,52 +1,90 @@
 import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';
-import SuccessScreen from './screens/SuccessScreen';
-import LandingScreen from './screens/LandingScreen';
-import HomeScreen from './screens/HomeScreen';
-import MenuScreen from './screens/MenuScreen';
+import { Image } from 'react-native';
 
-const Stack = createStackNavigator();
+// Import your screens for each tab
+import ListScreen from './screens/ListScreen';
+import LikedScreen from './screens/LikedScreen';
+import AddScreen from './screens/AddScreen';
+import ChatScreen from './screens/ChatScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
-const App = () => {
+// Create a bottom tab navigator
+const Tab = createBottomTabNavigator();
+
+const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingScreen">
-        <Stack.Screen
-          name="LandingScreen"
-          component={LandingScreen}
-          options={{ title: 'Welcome' }}
+      <Tab.Navigator
+        tabBarOptions={{
+          showLabel: false, // Hide tab labels
+        }}
+      >
+        <Tab.Screen
+          name="Category"
+          component={ListScreen}
+          options={{
+            tabBarIcon: () => (
+              <Image
+                source={require('./logos/iconMenuList.png')}
+                style={{ width: 24, height: 24 }}
+              />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{ title: 'Login' }}
+        <Tab.Screen
+          name="Liked"
+          component={LikedScreen}
+          options={{
+            tabBarIcon: () => (
+              <Image
+                source={require('./logos/iconMenuHeart.png')}
+                style={{ width: 24, height: 24 }}
+              />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
-          options={{ title: 'Sign Up' }}
+        <Tab.Screen
+          name="Add"
+          component={AddScreen}
+          options={{
+            tabBarIcon: () => (
+              <Image
+                source={require('./logos/iconAdd.png')}
+                style={{ width: 72, height: 92 }}
+              />
+            ), 
+            //headerShown: false, //hides the Tab screen name
+          }}
         />
-        <Stack.Screen
-          name="SuccessScreen"
-          component={SuccessScreen}
-          options={{ title: 'Success' }}
+        <Tab.Screen
+          name="Chat"
+          component={ChatScreen}
+          options={{
+            tabBarIcon: () => (
+              <Image
+                source={require('./logos/iconMenuChat.png')}
+                style={{ width: 24, height: 24 }}
+              />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-          options={{ title: 'Home' }}
+        <Tab.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            tabBarIcon: () => (
+              <Image
+                source={require('./logos/iconMenuUser.png')}
+                style={{ width: 24, height: 24 }}
+              />
+            ),
+          }}
         />
-        <Stack.Screen
-          name="MenuScreen"
-          component={MenuScreen}
-          options={{ title: 'Menu' }}
-        />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-export default App;
+export default AppNavigator;
