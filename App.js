@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Image } from 'react-native';
@@ -9,9 +11,33 @@ import LikedScreen from './screens/LikedScreen';
 import AddScreen from './screens/AddScreen';
 import ChatScreen from './screens/ChatScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import DetailScreen from './screens/DetailScreen';
+import MapScreen from './screens/MapScreen';
 
 // Create a bottom tab navigator
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+const ListStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{
+      headerShown: false,
+    }}>
+      <Stack.Screen name="List" component={ListScreen} />
+      <Stack.Screen name="Detail" component={DetailScreen} 
+        options={{
+          headerShown: true,
+          title: '',
+        }}
+      />
+      <Stack.Screen name="Map" component={MapScreen} options={{
+          headerShown: true,
+          title: 'Next to you',
+        }}
+      />
+    </Stack.Navigator>
+  );
+};
 
 const AppNavigator = () => {
   return (
@@ -20,10 +46,13 @@ const AppNavigator = () => {
         tabBarOptions={{
           showLabel: false, // Hide tab labels
         }}
+        screenOptions={{
+          headerShown: false,
+        }}
       >
         <Tab.Screen
-          name="Category"
-          component={ListScreen}
+          name="List"
+          component={ListStack}
           options={{
             tabBarIcon: () => (
               <Image

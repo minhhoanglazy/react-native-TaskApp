@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-function ChatScreen() {
+function ProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text>Hello</Text>
+      <Text>Profile</Text>
     </View>
   );
 }
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ChatScreen;
+export default ProfileScreen;
