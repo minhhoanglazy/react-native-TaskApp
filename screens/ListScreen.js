@@ -67,11 +67,11 @@ const ListScreen = () => {
         <Text style={styles.categoriesTitle}>Categories</Text>
         <View style={styles.category}>
           <Image source={require('../logos/Icon_House.png')} style={styles.icon} />
-          <Text style={{ fontSize: 16, fontWeight: 'bold' }}>     Help around the house                                                   {'>'}</Text>
+          <Text style={{ fontSize: 16, fontWeight: 'bold' }}>   Help around the house    {'>'}</Text>
         </View>
         <View style={styles.category}>
           <Image source={require('../logos/Icon_Moving.png')} style={styles.icon} />
-          <Text style={{ fontSize: 16,fontWeight: 'bold'}}>     Moving and things                                                          {'>'}</Text>
+          <Text style={{ fontSize: 16,fontWeight: 'bold'}}>   Moving and things           {'>'}</Text>
         </View>
       </View>
 
@@ -163,7 +163,6 @@ const styles = {
     height: 50,
     marginBottom: 8,
   },
-
   card:{
     backgroundColor:'#fff',
     borderRadius :10,
@@ -171,7 +170,7 @@ const styles = {
     marginTop :10
   },
   cardImage:{
-    width :'50%',
+    
     borderRadius :10
   },
   cardText:{
