@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Image } from 'react-native';
 
-// Import your screens for each tab
 import ListScreen from './screens/ListScreen';
 import LikedScreen from './screens/LikedScreen';
 import AddScreen from './screens/AddScreen';
@@ -13,7 +12,6 @@ import ProfileScreen from './screens/ProfileScreen';
 import DetailScreen from './screens/DetailScreen';
 import MapScreen from './screens/MapScreen';
 
-// Create a bottom tab navigator
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
